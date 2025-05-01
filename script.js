@@ -16,26 +16,26 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".navbar ul li a");
     const hireMeButton = document.querySelector(".cta-button");
 
-    // Hide all sections except the "About" section by default
-    sections.forEach((section) => {
+    // Initially hide all sections except "About Me"
+    sections.forEach(section => {
         section.style.display = "none";
     });
-    document.getElementById("about").style.display = "block"; // Show About section initially
+    document.getElementById("about").style.display = "block"; // Show About section first
 
-    // Function to show the correct section
+    // Function to show the selected section
     function showSection(targetId) {
         sections.forEach(section => {
             section.style.display = section.id === targetId ? "block" : "none";
         });
 
-        // Smooth scrolling to the section
+        // Smooth scrolling effect
         document.getElementById(targetId).scrollIntoView({ behavior: "smooth" });
     }
 
     // Event listener for navigation links
     navLinks.forEach(link => {
         link.addEventListener("click", function (event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default anchor action
             showSection(this.getAttribute("href").substring(1));
         });
     });
@@ -45,6 +45,22 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         showSection("contact"); // Show Contact section when "Hire Me" is clicked
     });
+
+    const sections1 = document.querySelectorAll(".scroll-animation");
+
+    function checkVisibility() {
+        sections1.forEach(section => {
+            const position = section.getBoundingClientRect().top;
+            const screenHeight = window.innerHeight;
+
+            if (position < screenHeight - 100) {
+                section.classList.add("visible");
+            }
+        });
+    }
+
+    window.addEventListener("scroll", checkVisibility);
+    checkVisibility(); // Run on load to trigger animations if sections are already in view
 });
 
 
@@ -76,17 +92,17 @@ document.addEventListener("DOMContentLoaded", function () {
 // });
 
 
-// window.addEventListener("scroll", function () {
-//     let elements = document.querySelectorAll(".fade-in");
-//     elements.forEach((el) => {
-//         let position = el.getBoundingClientRect().top;
-//         let screenHeight = window.innerHeight;
-//         if (position < screenHeight) {
-//             el.style.opacity = 1;
-//             el.style.transform = "translateY(0)";
-//         }
-//     });
-// });
+window.addEventListener("scroll", function () {
+    let elements = document.querySelectorAll(".fade-in");
+    elements.forEach((el) => {
+        let position = el.getBoundingClientRect().top;
+        let screenHeight = window.innerHeight;
+        if (position < screenHeight) {
+            el.style.opacity = 1;
+            el.style.transform = "translateY(0)";
+        }
+    });
+});
 
 // const testimonials = document.querySelectorAll(".testimonial");
 // let index = 0;
