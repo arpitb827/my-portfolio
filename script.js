@@ -61,6 +61,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", checkVisibility);
     checkVisibility(); // Run on load to trigger animations if sections are already in view
+
+    // const menuToggle = document.querySelector(".menu-toggle");
+    // const navLinks1 = document.querySelector(".nav-links");
+
+    // menuToggle.addEventListener("click", function () {
+    //     navLinks1.classList.toggle("active");
+    // });
 });
 
 
