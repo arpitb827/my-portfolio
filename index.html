@@ -1,160 +1,1015 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arpit Bansal | Software Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    </head>
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arpit Bansal | Lead Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --teal: #1A6B5A;
+      --teal-light: #2A9478;
+      --teal-glow: rgba(26,106,90,0.08);
+      --teal-border: rgba(26,106,90,0.25);
+      --dark: #F5F7F6;
+      --dark2: #EEF2F0;
+      --dark3: #E8EDEB;
+      --card: #FFFFFF;
+      --text: #0F1A17;
+      --text2: #3D5C52;
+      --text3: #6B8C82;
+      --accent: #0F7A5A;
+      --amber: #F5A623;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 3rem;
+      background: rgba(245,247,246,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--teal-border);
+    }
+
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--teal);
+      letter-spacing: 0.02em;
+    }
+
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav ul a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--teal); }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,106,90,0.10) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(26,106,90,0.06) 0%, transparent 60%);
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,106,90,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,106,90,0.08) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      font-weight: 500;
+      color: var(--teal);
+      border: 1px solid rgba(26,106,90,0.3);
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.8rem;
+      background: rgba(26,106,90,0.06);
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #0F1A17 0%, #1A6B5A 50%, #2A9478 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    .hero-role {
+      font-size: 1.15rem;
+      color: var(--text2);
+      font-weight: 300;
+      margin-bottom: 1rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--text3);
+      margin-bottom: 2.5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      margin-bottom: 2.8rem;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .stat { text-align: center; }
+    .stat-val {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--teal);
+    }
+    .stat-lbl { font-size: 0.8rem; color: var(--text3); margin-top: 2px; }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: #fff;
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid var(--teal-light);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-primary:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(26,106,90,0.4); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      padding: 0.75rem 1.8rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-outline:hover { border-color: var(--teal-border); color: var(--teal); transform: translateY(-2px); }
+
+    /* ─── SECTIONS ─── */
+    section { padding: 6rem 2rem; position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .section-desc {
+      color: var(--text2);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-section { background: var(--dark2); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .skill-card {
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.12);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .skill-card:hover { border-color: var(--teal-border); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,106,90,0.1); }
+
+    .skill-cat {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+    .skill-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag {
+      font-size: 0.72rem;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: rgba(26,106,90,0.15);
+      border: 1px solid var(--teal-border);
+      color: var(--text2);
+    }
+
+    /* ─── EXPERIENCE ─── */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(26,106,90,0.25), transparent);
+    }
+
+    .exp-item {
+      padding-left: 2rem;
+      padding-bottom: 3rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+    .exp-item.visible { opacity: 1; transform: translateY(0); }
+
+    .exp-dot {
+      position: absolute;
+      left: -5px;
+      top: 6px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--teal);
+      border: 2px solid #2A9478;
+      box-shadow: 0 0 10px rgba(26,106,90,0.2);
+    }
+
+    .exp-meta {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.5rem;
+    }
+
+    .exp-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .exp-company { font-size: 0.9rem; color: var(--teal); margin-top: 2px; font-weight: 500; }
+    .exp-period {
+      font-size: 0.78rem;
+      color: var(--text3);
+      white-space: nowrap;
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.15);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .exp-bullets {
+      margin-top: 0.8rem;
+      padding-left: 1rem;
+      list-style: none;
+    }
+    .exp-bullets li {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.65;
+      margin-bottom: 0.45rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+    .exp-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--teal-light);
+      font-weight: 700;
+    }
+
+    .exp-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 0.8rem;
+    }
+    .stack-tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(26,106,90,0.07);
+      border: 1px solid rgba(26,106,90,0.15);
+      color: var(--text3);
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-section { background: var(--dark3); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.12);
+      border-radius: 14px;
+      padding: 1.8rem;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--accent));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .project-card:hover { border-color: var(--teal-border); transform: translateY(-4px); box-shadow: 0 16px 40px rgba(0,0,0,0.4); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .project-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .project-desc { font-size: 0.87rem; color: var(--text2); line-height: 1.65; margin-bottom: 1rem; }
+    .project-stack { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 1.2rem; }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.82rem;
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 500;
+      border: 1px solid rgba(26,106,90,0.25);
+      padding: 0.35rem 0.9rem;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+    .project-link:hover { background: rgba(26,106,90,0.06); }
+
+    /* ─── ACHIEVEMENTS ─── */
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .achievement-card {
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.12);
+      border-radius: 12px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .achievement-card:hover { border-color: var(--teal-border); box-shadow: 0 6px 20px rgba(26,106,90,0.08); }
+
+    .ach-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: var(--teal-glow);
+      border: 1px solid var(--teal-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+    .ach-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .ach-desc { font-size: 0.82rem; color: var(--text2); line-height: 1.55; }
+    .ach-desc a { color: var(--teal); text-decoration: none; }
+    .ach-desc a:hover { text-decoration: underline; }
+
+    /* ─── CONTACT ─── */
+    .contact-section { background: var(--dark2); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    @media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+
+    .contact-info-block { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.12);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-row:hover { border-color: var(--teal-border); box-shadow: 0 4px 16px rgba(26,106,90,0.08); }
+    .contact-row i { color: var(--teal); width: 20px; text-align: center; }
+    .contact-row-label { font-size: 0.75rem; color: var(--text3); }
+    .contact-row-val { font-size: 0.9rem; color: var(--text); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input,
+    .contact-form textarea {
+      background: var(--card);
+      border: 1px solid rgba(26,106,90,0.15);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      resize: none;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: var(--text3); }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--teal-border); }
+    .contact-form textarea { min-height: 130px; }
+
+    .contact-form button {
+      background: var(--teal);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.85rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .contact-form button:hover { background: var(--teal-light); transform: translateY(-2px); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(26,106,90,0.12);
+      font-size: 0.8rem;
+      color: var(--text3);
+    }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1rem; }
+      nav ul a { font-size: 0.8rem; }
+      .hero-stats { gap: 1.5rem; }
+      .timeline::before { display: none; }
+      .exp-item { padding-left: 0; }
+      .exp-dot { display: none; }
+    }
+    @media (max-width: 480px) {
+      nav ul { display: none; }
+    }
+
+    /* open to work pulse */
+    .open-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: #166534;
+      border: 1px solid rgba(22,101,52,0.25);
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: rgba(22,101,52,0.07);
+      margin-bottom: 1rem;
+    }
+    .pulse {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: #16a34a;
+      animation: pulse 1.6s infinite;
+    }
+    @keyframes pulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+      50% { box-shadow: 0 0 0 5px rgba(22,101,52,0); }
+    }
+  </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="hero-content">
-            <h1>Arpit Bansal</h1>
-            <p>Lead Software Engineer | Full Stack Developer | Python Lead</p>
-            <p class="tagline">Building Scalable & High-Performance Applications</p>
-            <a href="#contact" class="cta-button">Hire Me</a>
-        </div>
-    </header>
-    
 
-    <nav class="navbar">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <!-- <li><a href="#testimonials">Experiences</a></li> -->
-            <li><a href="#achievements">Achievements</a></li>
-            <li><a href="#resume">Resume</a></li>
-            <li><a href="#contact">Contact</a></li>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AB</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="open-badge"><span class="pulse"></span> Open to Noida · Delhi NCR · Remote · Freelance</div>
+    <div class="hero-badge">Lead Software Engineer · 12 Years Experience</div>
+    <h1>Arpit Bansal</h1>
+    <p class="hero-role">Python · Java · Integration Studio · AI/ML · Fintech & SaaS</p>
+    <p class="hero-tagline">Building scalable systems, intelligent integrations & AI-powered platforms</p>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-val">12+</div><div class="stat-lbl">Years Experience</div></div>
+      <div class="stat"><div class="stat-val">6</div><div class="stat-lbl">Companies</div></div>
+      <div class="stat"><div class="stat-val">100K+</div><div class="stat-lbl">Txns / Day</div></div>
+      <div class="stat"><div class="stat-val">65%</div><div class="stat-lbl">Faster Integrations</div></div>
+    </div>
+    <div class="hero-btns">
+      <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Hire Me</a>
+      <a href="https://drive.google.com/file/d/1xMhvufp9IjKENZuPKmTXJgTwV8XWRNUW/view" target="_blank" class="btn-outline"><i class="fas fa-file-download"></i> Download CV</a>
+      <a href="https://www.linkedin.com/in/arpit-bansal-6a76bb77/" target="_blank" class="btn-outline"><i class="fab fa-linkedin"></i> LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / SKILLS -->
+<section class="skills-section" id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title fade-up">12 years of shipping<br>systems that scale</h2>
+    <p class="section-desc fade-up">
+      Lead Software Engineer specialising in Python, Java, enterprise integration platforms, and AI/ML solutions across Fintech, Healthcare/Insurance, and Enterprise SaaS. Recently built an AI-powered Integration Studio Bot using LLM + RAG that lets teams configure integrations, generate Airflow DAGs, and analyse logs through natural language.
+    </p>
+    <div class="skills-grid">
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-name">Python & Java</div>
+        <div class="skill-tags">
+          <span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">XML</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Frameworks</div>
+        <div class="skill-name">Backend & API</div>
+        <div class="skill-tags">
+          <span class="tag">Django</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">Vert.x</span><span class="tag">React</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Integration</div>
+        <div class="skill-name">Integration Studio</div>
+        <div class="skill-tags">
+          <span class="tag">Push/Pull Mapping</span><span class="tag">SAP</span><span class="tag">Oracle</span><span class="tag">Banking APIs</span><span class="tag">Transformations</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">AI / ML</div>
+        <div class="skill-name">GenAI & LLM</div>
+        <div class="skill-tags">
+          <span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">Vertex AI</span><span class="tag">ChatGPT API</span><span class="tag">OCR Pipelines</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Databases</div>
+        <div class="skill-name">SQL & NoSQL</div>
+        <div class="skill-tags">
+          <span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Redis</span><span class="tag">RabbitMQ</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Cloud & DevOps</div>
+        <div class="skill-name">AWS & GCP</div>
+        <div class="skill-tags">
+          <span class="tag">AWS</span><span class="tag">GCP</span><span class="tag">Docker</span><span class="tag">Airflow</span><span class="tag">CI/CD</span><span class="tag">Celery</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Architecture</div>
+        <div class="skill-name">System Design</div>
+        <div class="skill-tags">
+          <span class="tag">Microservices</span><span class="tag">Multi-tenant SaaS</span><span class="tag">DDD</span><span class="tag">CQRS</span><span class="tag">Event-driven</span>
+        </div>
+      </div>
+      <div class="skill-card fade-up">
+        <div class="skill-cat">Domain</div>
+        <div class="skill-name">Industry Expertise</div>
+        <div class="skill-tags">
+          <span class="tag">Fintech</span><span class="tag">T&E / P2P</span><span class="tag">Healthcare</span><span class="tag">Insurance</span><span class="tag">ERP</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Career</div>
+    <h2 class="section-title fade-up">Professional Experience</h2>
+    <div class="timeline">
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Lead Software Engineer</div>
+            <div class="exp-company">Antrepriz Ltd. · Pune</div>
+          </div>
+          <span class="exp-period">May 2024 – Present</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed and built an AI-powered Integration Studio Bot (LLM + RAG) — users configure integrations, fetch logs, auto-generate Airflow DAGs, automate field mapping, and schedule workflows via natural language, reducing setup time by 65%.</li>
+          <li>Architected Integration Studio with push/pull data synchronisation, field-level mapping, and transformation pipelines for SAP, Oracle, Bulkpe & Banking APIs — cutting integration setup time by 50%.</li>
+          <li>Developed AI/ML OCR pipeline using Vertex AI (Generative AI) to extract and validate data from scanned financial documents, reducing manual data entry by 60%.</li>
+          <li>Led 6-member team delivering Spend Management platform (T&E, P2P, Petty Cash, Utilities) for 3 enterprise clients, reducing manual reconciliation by ~40%.</li>
+          <li>Built reactive Java Vert.x microservices on AWS; maintained 99.9% uptime across production deployments.</li>
         </ul>
-    </nav>
+        <div class="exp-stack">
+          <span class="stack-tag">Java (Vert.x)</span><span class="stack-tag">Python</span><span class="stack-tag">FastAPI</span><span class="stack-tag">LLM/RAG</span><span class="stack-tag">Vertex AI</span><span class="stack-tag">Apache Airflow</span><span class="stack-tag">AWS</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">MongoDB</span>
+        </div>
+      </div>
 
-    <section id="about" class="scroll-animation">
-        <h2>About Me</h2>
-        <p>
-            With over 10 years of experience in software development, I am a highly skilled Software Engineer with expertise
-in leading teams, frontend and backend development, project management, and agile methodologies.
-Passionate about leveraging my technical proficiency to create innovative software solutions that enhance user
-experiences. Proven experience in asynchronous programming to build efficient, scalable applications.
-        </p>
-        <h3>Technical Skills:</h3>
-        <ul class="skills-list" style="list-style-type: none; padding-left: 0; margin-left: 0;">
-            <li>🚀 JavaScript (React, Node.js)</li>
-            <li>⚡ Python (Django, FastAPI, Flask)</li>
-            <li>🔍 Database Management (PostgreSQL, MongoDB, MySQL)</li>
-            <li>☁️ Cloud Computing (AWS, GCP)</li>
-            <li>🛠 DevOps & CI/CD (Docker, Kubernetes)</li>
-            <li>🛠 Code version Control (Gitlab, Github)</li>
-            <li>🚀 Cache Broker (Redis, RabbitMQ)</li>
-
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Lead Software Engineer</div>
+            <div class="exp-company">Tap Smart Data — Bizzo / Invoice Hub · Mumbai</div>
+          </div>
+          <span class="exp-period">Oct 2019 – May 2024</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Led Invoice Hub — a high-volume invoicing platform processing 100,000+ transactions/day, improving settlement speed by 35%.</li>
+          <li>Architected Bizzo, a multi-tenant SaaS platform with secure tenant isolation supporting 50+ enterprise clients.</li>
+          <li>Managed AWS/GCP infra and GitLab CI/CD pipelines, reducing deployment time by 50% with zero-downtime releases.</li>
+          <li>Built async Celery/Redis pipelines for batch invoice processing; integrated Vertex AI reducing manual review time by 30%.</li>
         </ul>
-    </section>
-    
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Django</span><span class="stack-tag">FastAPI</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Redis</span><span class="stack-tag">Celery</span><span class="stack-tag">AWS</span><span class="stack-tag">GCP</span><span class="stack-tag">Vertex AI</span>
+        </div>
+      </div>
 
-    <section id="projects" class="scroll-animation">
-        <h2>My Projects</h2>
-        <div class="project-card">
-            <h3>🚀 Docs Reader AI/ML based</h3>
-            <p>Developed an intelligent chatbot using NLP, GPT models, and React frontend for seamless communication.</p>
-            <p><strong>Tech Stack:</strong> Python, FastAPI, React, Gemini API</p>
-            <a href="https://neon-maamoul-a85884.netlify.app/" class="view-project" target="_blank">View Project</a>
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Lead Software Engineer</div>
+            <div class="exp-company">Tap Smart Data — CityCash · Mumbai</div>
+          </div>
+          <span class="exp-period">Jul 2018 – May 2019</span>
         </div>
-        <div class="project-card">
-            <h3>🚀 AI-Powered Chatbot</h3>
-            <p>Developed an intelligent chatbot using NLP, GPT models, and React frontend for seamless communication.</p>
-            <p><strong>Tech Stack:</strong> Python, FastAPI, React, OpenAI API</p>
-            <a href="#" class="view-project">View Project</a>
+        <ul class="exp-bullets">
+          <li>Led MSRTC prepaid wallet system backend, mentoring 3 junior developers; built BC Agent App, Conductor Ticket App & Toll Plaza Trip Validation System.</li>
+          <li>Built optimised SQL views and reporting dashboards providing critical operational insights.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Django</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">MongoDB</span><span class="stack-tag">Redis</span><span class="stack-tag">AWS</span><span class="stack-tag">React</span>
         </div>
-    
-        <div class="project-card">
-            <h3>⚡ Scalable E-commerce Platform</h3>
-            <p>Designed a high-performance e-commerce system with real-time inventory management and order processing.</p>
-            <p><strong>Tech Stack:</strong> Node.js, MongoDB, AWS</p>
-            <a href="#" class="view-project">View Project</a>
-        </div>
-    
-        <div class="project-card">
-            <h3>🔍 Data Analytics Dashboard</h3>
-            <p>Built a responsive analytics dashboard for business insights, integrating machine learning models.</p>
-            <p><strong>Tech Stack:</strong> Python, Flask, Pandas, D3.js</p>
-            <a href="#" class="view-project">View Project</a>
-        </div>
-    </section>
-    
-    <section id="testimonials" class="scroll-animation">
-        <h2>Experiences</h2>
-        <div class="testimonial-container">
-            <div class="testimonial">
-                <p>“An outstanding developer with an eye for detail! The project was delivered perfectly.”</p>
-                <h4>- Client Name</h4>
-            </div>
-            <div class="testimonial">
-                <p>“Amazing problem-solving skills! Highly recommended for complex applications.”</p>
-                <h4>- Team Lead</h4>
-            </div>
-            <div class="testimonial">
-                <p>“One of the best engineers I’ve worked with. Clean, scalable code and excellent teamwork.”</p>
-                <h4>- Senior Developer</h4>
-            </div>
-        </div>
-    </section>
-    
-    <section id="achievements" class="scroll-animation">
-        <h2>Achievements</h2>
-        <div class="achievement-card">
-            <h3>🏆 Gold badge (Python) </h3>
-            <p> 🖱️ <a href="https://www.hackerrank.com/profile/arpitb827">
-            Done practicess on hackerank and achieved .</a></p>
+      </div>
 
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Senior Backend Lead</div>
+            <div class="exp-company">I3Systems Pvt Ltd · Mumbai</div>
+          </div>
+          <span class="exp-period">May 2019 – Sep 2019</span>
         </div>
-        <div class="achievement-card">
-            <h3>🎓 Google Data Analysis (Foundation) </h3>
-            <p> 🖱️ <a href=" https://coursera.org/share/3496326d44a36f6c842668a153d3b828" >
-            Done practicess and learn on coursera and achieved .</a></p>
+        <ul class="exp-bullets">
+          <li>Built Insurance API integrations for automated claims posting; designed dynamic QC allocation logic reducing queue backlogs by 30%.</li>
+          <li>Developed BeautifulSoup web scraping pipeline to extract health profile data linked to insurance cases.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Django</span><span class="stack-tag">Redis</span><span class="stack-tag">Celery</span><span class="stack-tag">MongoDB</span><span class="stack-tag">MySQL</span>
         </div>
-        <!-- <div class="achievement-card">
-            <h3>📜 Full Stack Development Course</h3>
-            <p>Completed hands-on training in MERN stack development.</p>
-        </div> -->
-    </section>
-    
-    <section id="resume">
-        <!-- <h2>Download Resume</h2> -->
-        <a href="https://drive.google.com/file/d/1xMhvufp9IjKENZuPKmTXJgTwV8XWRNUW/view" download class="resume-button">
-            <i class="fas fa-file-download"></i> Download Resume
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Senior Software Developer</div>
+            <div class="exp-company">Bista Solutions Pvt Ltd · Mumbai</div>
+          </div>
+          <span class="exp-period">Jun 2015 – Jul 2018</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Delivered ERP customisations for US clients — Subscription Management, Pricing Engine, Part Lookup; automated invoice payments saving 45% processing time.</li>
+          <li>Led data migrations for millions of records across auto parts and telecom clients with zero data loss.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Odoo</span><span class="stack-tag">XML-RPC</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Node.js</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-dot"></div>
+        <div class="exp-meta">
+          <div>
+            <div class="exp-title">Software Engineer</div>
+            <div class="exp-company">Openerp4you · Faridabad</div>
+          </div>
+          <span class="exp-period">Feb 2014 – May 2015</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Developed ERP customisations and QWeb reports for Designco India Pvt Ltd across HR, Sales, Purchase, Inventory & Accounting modules.</li>
+          <li>Built data import scripts for seamless system migrations with accurate record updates.</li>
+        </ul>
+        <div class="exp-stack">
+          <span class="stack-tag">Python</span><span class="stack-tag">Odoo</span><span class="stack-tag">WKHTMLTOPDF</span><span class="stack-tag">XML</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="container">
+    <div class="section-label">Work</div>
+    <h2 class="section-title fade-up">Featured Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card fade-up">
+        <div class="project-icon">🤖</div>
+        <div class="project-title">Integration Studio Bot (AI/ML)</div>
+        <div class="project-desc">AI-powered chatbot using LLM + RAG enabling natural language configuration of integrations — fetch logs, auto-generate Airflow DAGs, automate mapping, build workflows, and schedule integrations via plain English commands.</div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">LLM</span><span class="tag">RAG</span><span class="tag">Apache Airflow</span><span class="tag">FastAPI</span>
+        </div>
+        <span style="font-size:0.78rem; color:var(--text3);">Proprietary — Antrepriz Ltd.</span>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">📄</div>
+        <div class="project-title">Docs Reader AI/ML</div>
+        <div class="project-desc">Intelligent document reader using NLP, GPT models and React frontend. Upload any document and chat with it — extracts, summarises, and answers questions from scanned docs.</div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">React</span><span class="tag">Gemini API</span>
+        </div>
+        <a href="https://neon-maamoul-a85884.netlify.app/" target="_blank" class="project-link"><i class="fas fa-external-link-alt"></i> View Live</a>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">🧾</div>
+        <div class="project-title">Invoice Hub — High Volume Platform</div>
+        <div class="project-desc">Invoicing discount platform processing 100,000+ transactions/day with Celery/Redis async pipelines, PostgreSQL write model, and Vertex AI analytics integration.</div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">Celery</span><span class="tag">Redis</span><span class="tag">Vertex AI</span>
+        </div>
+        <span style="font-size:0.78rem; color:var(--text3);">Proprietary — Tap Smart Data</span>
+      </div>
+
+      <div class="project-card fade-up">
+        <div class="project-icon">🏢</div>
+        <div class="project-title">Bizzo — Multi-tenant SaaS</div>
+        <div class="project-desc">Multi-tenant SaaS platform with secure tenant isolation, custom business workflows, and scalable data layers supporting 50+ enterprise clients. AWS/GCP infra with GitLab CI/CD.</div>
+        <div class="project-stack">
+          <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">AWS</span>
+        </div>
+        <span style="font-size:0.78rem; color:var(--text3);">Proprietary — Tap Smart Data</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <h2 class="section-title fade-up">Achievements & Certifications</h2>
+    <div class="achievements-grid">
+      <div class="achievement-card fade-up">
+        <div class="ach-icon">🐍</div>
+        <div>
+          <div class="ach-title">HackerRank Python Gold Badge</div>
+          <div class="ach-desc">Top-tier Python proficiency verified by HackerRank assessments. Also holds SQL Silver badge. <a href="https://www.hackerrank.com/profile/arpitb827" target="_blank">View Profile →</a></div>
+        </div>
+      </div>
+      <div class="achievement-card fade-up">
+        <div class="ach-icon">📊</div>
+        <div>
+          <div class="ach-title">Google Data Analysis Foundation</div>
+          <div class="ach-desc">Completed Google's Data Analysis certification on Coursera, covering analytics, visualisation, and data-driven decision making. <a href="https://coursera.org/share/3496326d44a36f6c842668a153d3b828" target="_blank">View Certificate →</a></div>
+        </div>
+      </div>
+      <div class="achievement-card fade-up">
+        <div class="ach-icon">🎓</div>
+        <div>
+          <div class="ach-title">B.Tech Computer Science Engineering</div>
+          <div class="ach-desc">Uttar Pradesh Technical University, Lucknow · 74.7% · 2010–2014</div>
+        </div>
+      </div>
+      <div class="achievement-card fade-up">
+        <div class="ach-icon">🏆</div>
+        <div>
+          <div class="ach-title">12 Years Continuous Delivery</div>
+          <div class="ach-desc">Unbroken track record from Feb 2014 to present across 6 companies — Faridabad → Mumbai → Pune — delivering production systems at scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title fade-up">Let's work together</h2>
+    <div class="contact-grid">
+      <div class="contact-info-block fade-up">
+        <a href="mailto:arpitb827@gmail.com" class="contact-row">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <div class="contact-row-label">Email</div>
+            <div class="contact-row-val">arpitb827@gmail.com</div>
+          </div>
         </a>
-        <a href="https://www.linkedin.com/in/arpit-bansal-6a76bb77/" target="_blank" class="linkedin-button">
-            <i class="fab fa-linkedin"></i> Visit LinkedIn
+        <a href="tel:+917977366426" class="contact-row">
+          <i class="fas fa-phone"></i>
+          <div>
+            <div class="contact-row-label">Phone</div>
+            <div class="contact-row-val">+91-7977366426</div>
+          </div>
         </a>
+        <a href="https://www.linkedin.com/in/arpit-bansal-6a76bb77/" target="_blank" class="contact-row">
+          <i class="fab fa-linkedin"></i>
+          <div>
+            <div class="contact-row-label">LinkedIn</div>
+            <div class="contact-row-val">arpit-bansal-6a76bb77</div>
+          </div>
+        </a>
+        <a href="https://github.com/arpitb827" target="_blank" class="contact-row">
+          <i class="fab fa-github"></i>
+          <div>
+            <div class="contact-row-label">GitHub</div>
+            <div class="contact-row-val">github.com/arpitb827</div>
+          </div>
+        </a>
+        <a href="https://www.hackerrank.com/profile/arpitb827" target="_blank" class="contact-row">
+          <i class="fas fa-code"></i>
+          <div>
+            <div class="contact-row-label">HackerRank</div>
+            <div class="contact-row-val">Python Gold · SQL Silver</div>
+          </div>
+        </a>
+        <a href="https://drive.google.com/file/d/1xMhvufp9IjKENZuPKmTXJgTwV8XWRNUW/view" target="_blank" class="contact-row">
+          <i class="fas fa-file-download"></i>
+          <div>
+            <div class="contact-row-label">Resume</div>
+            <div class="contact-row-val">Download CV (PDF)</div>
+          </div>
+        </a>
+      </div>
+      <form class="contact-form fade-up" action="mailto:arpitb827@gmail.com" method="POST" enctype="text/plain">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Subject (e.g. Freelance project, Job opportunity)">
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
 
+<footer>
+  <p>© 2026 Arpit Bansal · Lead Software Engineer · Pune, India</p>
+</footer>
 
-    </section>
-    
-    <section id="contact" class="scroll-animation">
-        <h2>Contact Me</h2>
-        <p>If you'd like to discuss a project or collaboration, feel free to get in touch!</p>
-    
-        <div class="contact-info">
-            <p>📧 Email: <a href="mailto:arpitb827@gmail.com">arpitb827@gmail.com</a></p>
-            <!-- <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/arpit-bansal-6a76bb77/">linkedin.com/in/yourprofile</a></p> -->
-            <p>📂 GitHub: <a href="https://github.com/arpitb827">github.com/arpitb827</a></p>
-        </div>
-    
-        <form class="contact-form" action="mailto:arpitb827@gmail.com" method="POST" enctype="text/plain">
-            <input type="text" placeholder="A" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
-        </form>
-    </section>
+<script>
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
 
-    <footer>
-        <p>© 2025 arpitb827 | All Rights Reserved</p>
-    </footer>
+  document.querySelectorAll('.fade-up, .exp-item').forEach(el => observer.observe(el));
 
-    <script src="script.js"></script>
+  // Stagger skill cards
+  document.querySelectorAll('.skill-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
+    observer.observe(card);
+  });
+</script>
 </body>
 </html>
